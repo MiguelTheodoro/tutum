@@ -1,0 +1,30 @@
+
+
+
+services:
+  postgres:
+    image: postgres:17.6
+    container_name: set
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: file
+    volumes:
+      - file:/var/lib/postgresql/data
+
+  redis:
+    container_name: queue
+    image: redis:8.4.0-alpine
+    ports:
+      - 6379:6379
+    volumes:
+      - queue:/data
+
+
+volumes:
+  file:
+
+  queue:
+    driver: local

@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum State {
+
+  UNDEFINED
+  SAFE
+  MALICIOUS
+
+}
+
+enum Status {
+
+  PROCESSED
+  IN_PROCESSING
+  UNPROCESSED
+
+}
+
+model File {
+
+  identity String @id @default(uuid())
+  name String @unique
+  size Int
+  path String
+  type String
+  lastModified DateTime @db.Timestamptz(3)
+  hash String @unique
+
+  analysis Analysis?
+  
+}
+
+
+model Analysis {
+
+  identity String @id @default(uuid())
+  evaluation Json?
+  state State @default(UNDEFINED)
+  status Status @default(UNPROCESSED)
+
+  linkWithFile File? @relation(fields: [file], references: [identity], onDelete: Cascade)
+
+  file String @unique
+  
+}
+
+

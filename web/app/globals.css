@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap');
+
+@import "tailwindcss";
+
+
+/*
+
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+*/
+
+
+@theme {
+    --bg-plentiful-color: var(--theme-plentiful-color);
+    --bg-plentiful-color: var(--theme-scarse-color);
+
+    --bg-plentiful-safe-color: var(--theme-plentiful-welcome);
+    --bg-scarse-safe-color: var(--theme-scarse-welcome);
+
+
+
+    --text-plentiful-color: var(--theme-scarse-color);
+    --text-scarse-color: var(--theme-plentiful-color);
+
+    --font-theme: 'Roboto Mono', monospace;
+
+}
+
+
+:root {
+    --theme-plentiful-color: #f4f4f5;
+    --theme-scarse-color: #18181b;
+
+    --theme-plentiful-text: #18181b;
+    --theme-scarse-text: #18181b;
+
+    --theme-plentiful-input-border: #18181b;
+    --theme-scarse-input-border: #18181b;
+
+    --theme-plentiful-placeholder: #f4f4f5;
+
+    --theme-plentiful-error: #ff4e4e;
+    --theme-scarse-error: #ff9797;
+
+
+    --theme-plentiful-welcome: #61ca61;
+    --theme-scarse-welcome: #d8ffd8;
+}
+
+.style-theme-color-light {
+    --theme-plentiful-color: #f4f4f5;
+    --theme-scarse-color: #18181b;
+
+    --theme-plentiful-text: #18181b;
+    --theme-scarse-text: #18181b;
+
+    --theme-plentiful-input-border: #18181b;
+    --theme-scarse-input-border: #18181b;
+
+    --theme-plentiful-placeholder: #f4f4f5;
+
+    --theme-plentiful-error: #ff4e4e;
+    --theme-scarse-error: #ff9797;
+
+
+    --theme-plentiful-welcome: #61ca61;
+    --theme-scarse-welcome: #d8ffd8;
+
+    /*#65c565*/
+
+}
+
+body {
+  background-color: var(--theme-plentiful-color);
+  font: var(--theme-plentiful-color);
+}
+
+.style-theme-color-dark {
+    /*@apply bg-[#070708];*/
+    --theme-plentiful-color: #0e0e10;
+    --theme-scarse-color: #f4f4f5;
+
+    --theme-plentiful-text: #919191;
+    --theme-scarse-text: #4e4e4e;
+
+    --theme-plentiful-input-border: #ffffff12;
+    --theme-scarse-input-border: #ffffff12;
+
+    --theme-plentiful-placeholder: #0e0e10;
+
+    --theme-plentiful-error: #ff4e4e;
+    --theme-scarse-error: #ff9797;
+
+    --theme-plentiful-welcome: #d8ffd8;
+    --theme-scarse-welcome: #d8ffd8;
+
+
+    --theme-font: 'Roboto Mono', monospace;
+}
+
+.style-theme-color-batmovel {
+    /*@apply bg-[#070708];*/
+    --theme-plentiful-color: #f4f4f5;
+    --theme-scarse-color: #f4f4f5;
+
+    --theme-plentiful-text: #f4f4f5;
+    --theme-scarse-text: #18181b;
+
+    --theme-plentiful-placeholder: transparent;
+
+    --theme-plentiful-input-border: #f4f4f5;
+    --theme-scarse-input-border: #18181b;
+}
+
+.style-theme-font-mono {
+    --theme-font: 'Roboto Mono', monospace;
+}
+
+.style-theme-font-sans-serif {
+    --theme-font: 'Poppins', sans-serif;
+}
+
+.style-theme-font-serif {
+    --theme-font: 'Zilla Slab', serif;
+}
+
+
+
+
+
+/*.center-elements {
+    @apply flex items-center justify-center;
+}
+
+.style-input {
+    @apply w-full h-[36px] px-4 font-[var(--theme-font)] font-medium text-xs text-[var(--theme-scarse-color)] border border-solid border-[var(--theme-plentiful-input-border)] bg-transparent transition-all duration-200 outline-none;
+}
+
+.style-input:not(:placeholder-shown).style-input:not(:focus){
+    @apply border border-[var(--theme-plentiful-input-border)] ;
+}
+
+
+.style-input:hover {
+    @apply border border-[var(--theme-plentiful-input-border)];
+}
+
+
+.style-input-radio {
+    @apply appearance-none cursor-pointer;
+}
+
+
+.style-input-radio:checked {
+    @apply outline outline-1 outline-[var(--theme-scarse-color)]
+}
+
+.style-span {
+    @apply absolute top-1/2 left-4 px-1 -translate-y-1/2 text-xs font-bold font-[theme-font~] text-[var(--theme-plentiful-text)] transition-all duration-200 bg-[var(--theme-plentiful-color)];
+}
+
+.style-input:focus ~ .style-span, .style-input:not(:placeholder-shown).style-input:not(:focus) ~ .style-span {
+    @apply -translate-y-[28px];
+}
+
+.style-label {
+    @apply relative block;
+}
+
+.style-form {
+    @apply w-full flex flex-col justify-center gap-3 px-10;
+}
+
+
+.style-submit {
+    @apply w-full h-[36px] font-theme-font font-light text-xs bg-transparent text-[var(--theme-scarse-color)] transition-all duration-200 backdrop-blur-md border border-solid border-[var(--theme-plentiful-input-border)];
+}
+
+.style-submit:hover {
+    @apply bg-[var(--theme-scarse-color)] text-[var(--theme-plentiful-color)];
+}
+
+
+.style-main {
+    @apply w-full h-[calc(100vh - 50px)] h-auto center-elements bg-[var(--theme-plentiful-color)];
+}
+
+
+.style-table {
+    @apply border-collapse border border-solid border-zinc-900 bg-[var(--theme-plentiful-color)];
+}
+
+
+.style-table-cell {
+    @apply px-6 py-5 border border-solid border-zinc-900 font-theme-font text-center font-medium text-xs text-zinc-600;
+}
+
+.style-table-head-cell {
+    @apply px-6 py-5 border border-solid border-zinc-900 font-theme-font text-center font-bold text-xs text-zinc-600;
+}
+
+
+
+.style-container-form {
+    @apply flex flex-row max-w-[600px] w-full p-[10px] border border-solid border-zinc-900 ;
+}
+*/
+
